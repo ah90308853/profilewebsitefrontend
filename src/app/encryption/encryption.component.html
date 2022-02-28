@@ -1,0 +1,84 @@
+<div class="container-fluid mb-5">
+	<div class="row justify-content-center" >
+		<div class="col-11 p-lg-5 px-2 py-5 rounded-3 shadow d-flex align-items-center justify-content-center" style="background-color: rgba(252, 243, 230,1); z-index: 1;">
+			<div class="container-fluid p-lg-5 px-3 py-5">
+                <div class="row g-3 p-lg-5 p-2 mb-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+                    <div class="col-12 d-flex justify-content-center">
+						<h1 class="mb-4 py-2 px-5 rounded-3" id="responsive-font-4" style="background-color:rgba(131, 215, 218, .5); box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); font-size: 3vmax; font-family: 'Source Code Pro', monospace; font-weight: 300;">Encryption</h1>
+					</div>
+					<div class="col-lg-6 col-12">
+                        <div class="p-3 rounded-3 h-100" style="background-color: rgba(65, 105, 225, 0.1);">
+                            <h1 class="text-center text-nowrap rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">The Problem</h1>
+						    <p id="responsiveBodyText" class="text-start px-3">
+                                RSA is the most common public-key encryption scheme, yet a fundamental vulnerability leaves the data it is used to encrypt exposed. Data encrypted solely using RSA takes miliseconds to decrypt. My program increases that decryption time by decades, dramatically increasing security.
+                                In this project, I have used C++ to implement a padding scheme that closes a key weakness within RSA. In support of that padding scheme, the RSA encryption scheme and MD5 hashing algorithm have also been implemented using C++.
+						    </p>
+                        </div>
+					</div>
+                    <div class="col-lg-6 col-12">
+                        <div class="p-3 rounded-3 h-100" style="background-color: rgba(225, 65, 172, 0.1);">
+                            <h1 class="text-center text-nowrap rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Encryption Scheme</h1>
+						    <p id="responsiveBodyText" class="text-start px-3">
+                                Public-key encryption, also known as asymmetric encryption, is a relatively new breakthrough in cryptology.
+                                As opposed to symmetric encryption, public-key encryption uses a public key for encryption and a private key
+                                for decryption. A public key is tied to an individual and published publicly, and a private key is a secret
+                                key similarly tied to an individual. As an example, if Alice intended to encrypt a message for Bob, Alice
+                                would encrypt the message using Bob’s public key. Bob would then use his private key to decrypt Alice’s message.
+						    </p>
+                            <img src="../../assets/Public_Key.2c100ece.svg" class="img-fluid">
+                        </div>
+					</div>
+                    <div class="col-lg-6 col-12">
+                        <div class="p-3 rounded-3 h-100" style="background-color: rgba(225, 97, 65, 0.1);">
+                            <h1 class="text-center text-nowrap rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Encryption Scheme</h1>
+                            <img src="../../assets/Diagram.07d0f29d.svg" class="img-fluid">
+                            <ul style="list-style-type: none;">
+                                <li id="responsiveBodyText">
+                                    1. Unencrypted data. For this demonstration, we'll be encrypting the letter "X." There are 26 possible letters we could have encrypted.
+                                </li>
+                                <li id="responsiveBodyText">
+                                    2. Chosen public-key encryption method. In this case, RSA. We will use a 664-bit long modulus. That means a direct attack would need to factor two primes of a size on the order of 2^332.
+                                </li>
+                                <li id="responsiveBodyText">
+                                    3. Encrypted data. Every possible combination of unencrypted data corresponds to only one combination of encrypted data. We are using a 664-bit RSA modulus which produces a 664-bit ciphertext result. This means there are 2^664 possible ciphertext results.
+                                </li>
+                                <li id="responsiveBodyText">
+                                    4. There is a clear mismatch between the number of possiblities of the unencrypted and encrypted data. A public-key encryption scheme makes the method of encryption public. If an adversary feeds all 26 possible letters into the encryption method, they are guaranteed to find a match with the targeted encrypted data. In short, rather than dealing with numbers on the order of 2^332, an adversary only needs to guess 26 times.
+                                </li>
+                            </ul>
+                        </div>
+					</div>
+                    <div class="col-lg-6 col-12">
+                        <div class="p-3 rounded-3 h-100" style="background-color: rgba(65, 225, 65, 0.1);">
+                            <h1 class="text-center text-nowrap rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">The Solution</h1>
+						    <p id="responsiveBodyText" class="text-start px-3">
+                                RSA is vulnerable because of the mismatch between the complexity of the key and what you intend to encrypt.
+                                The challenge is to make what you encrypt complex while retaining the original data. In other words, the
+                                letter "X"must gain complexity on the order of 2^332 while still unravelling back to "X."    
+						    </p>
+                            <p id="responsiveBodyText" class="text-start px-3">
+                                The optimal asymmetric encryption padding (OAEP) scheme was selected for the task. It was chosen as its
+                                design harmonized well with a hashing algorithm I had previously implemented.
+                            </p>
+                        </div>
+					</div>
+                    <div class="col-lg-6 col-12">
+                        <div class="p-3 rounded-3 h-100" style="background-color: rgba(65, 201, 225, 0.1);">
+                            <h1 class="text-center text-nowrap rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">OAEP Design</h1>
+						    <p id="responsiveBodyText" class="text-start px-3">
+                                As the diagram lays out, OAEP generates complexity through the combination of a random seed
+                                and the original data. "MGF" stands for a "mask generation function," which concatenates
+                                the hash result of a series of data values together and truncates the result to a set length.
+                                "DB" stands for the "data block," which is a precisely packaged version of the plaintext. The
+                                DB and random seed are masked together using the MGF to form the "EM," which stands for the
+                                "encrypted message." OAEP is only meant to raise the complexity of what you intend to encrypt,
+                                so it should be noted that RSA encryption has not yet taken place.
+						    </p>
+                            <img src="../../assets/OAEPdiagram.f110bad8.jpg" class="img-fluid">
+                        </div>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

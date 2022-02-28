@@ -1,0 +1,85 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap/scss/vendor/_rfs.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;500&display=swap');
+
+#welcomeButtons
+{
+    transition: background-color 2s;
+}
+
+.inactiveLink
+{
+    all: inherit;
+    align-self: center;
+    background-color: rgba(119, 136, 153, 0);
+    padding: 5px;
+    border-radius: .3rem;
+    color: rgb(43, 43, 48);
+    text-decoration: none;
+}
+
+.activeLink
+{
+    all: inherit;
+    align-self: center;
+    background-color: rgba(119, 136, 153, 0.445);
+    padding: 5px;
+    border-radius: .3rem;
+    transition: background-color 2s;
+    color: rgb(43, 43, 48);
+    text-decoration: none;
+}
+
+.activeLink:hover
+{
+    all: inherit;
+}
+
+#topNavBar
+{
+    transition: all 1.5s;
+}
+
+#welcomeIcon
+{
+    transition: all 1.5s;
+}
+
+#responsiveBodyText
+{
+    font-size: 1.2vmax;
+}
+
+@media (max-width: 800px)
+{
+    #responsiveBodyText
+    {
+        font-size: 2vmax;
+    }
+}
+
+#responsiveSmallHeader
+{
+    font-size: 4vw;
+}
+
+#responsiveLargeHeader
+{
+    font-size: 3vmax;
+}
+
+@media (max-width: 800px)
+{
+    #responsiveSmallHeader
+    {
+        font-size: 2vw;
+    }
+
+    #responsiveLargeHeader
+    {
+        font-size: 7vmax;
+    }
+}

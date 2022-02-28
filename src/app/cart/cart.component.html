@@ -1,0 +1,36 @@
+<div class="col-12 p-0">
+    <div class="container-fluid">
+        <div class="row g-3">
+            <div class="col-lg-6 col-12">
+                <div class="p-3 rounded-3 h-100" style="background-color:rgba(233, 150, 122, 0.521)">
+                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Cart</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let productAndSupplierInCart of cart; let i = index">
+                                <th scope="row">{{i + 1}}</th>
+                                <td>{{productAndSupplierInCart.productAndSupplier.offeringName}}</td>
+                                <td>${{productAndSupplierInCart.productAndSupplier.price}}</td>
+                                <td>{{productAndSupplierInCart.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="p-3 rounded-3 d-flex flex-column h-100" style="background-color: rgba(143, 188, 143, 0.486);">
+                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Checkout</h1>
+                    <p style="font-size: 2vmax;">Total: ${{getCartTotal}}</p>
+                    <button type="button" class="btn btn-primary w-50" (click)="checkout()">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

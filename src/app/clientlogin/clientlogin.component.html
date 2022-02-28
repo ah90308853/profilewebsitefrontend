@@ -1,0 +1,55 @@
+<div class="col-12 p-0">
+    <div class="container-fluid">
+        <div class="row g-3">
+            <div class="col-12">
+                <p style="font-size: 1.5vmax;">For demonstration purposes, the login system has been simplified. Please enter the id of the client you wish to use for the cart and profile features. In production, logging into a client account would be handled similarily to the Spring Security implementation I have built as a separate project.</p>
+            </div>
+            <div class="col-lg-6 col-12" style="overflow: auto; max-height: 100vh;">
+                <div class="rounded-3 p-4 h-100" style="background-color: rgba(199, 111, 70, 0.37);">
+                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Clients</h1>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let client of getClients">
+                                <td></td>
+                                <td>{{client.clientId}}</td>
+                                <td>{{client.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+
+
+                <!--
+                <ul *ngFor="let client of getClients" style="max-height: 100vh;">
+                    <li>Id: {{client.clientId}} Name: {{client.name}}</li>
+                </ul>
+                -->
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="rounded-3 p-4 h-100" style="background-color: rgba(135, 207, 235, 0.411);">
+                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Login</h1>
+                    <form [formGroup]="getClientLoginForm" (ngSubmit)="setLoggedInClient()">
+					    <div class="container-fluid">
+						    <div class="row g-3">
+							    <div class="col-12">
+                                    <input formControlName="clientId" type="text" placeholder="Id" class="form-control">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary" [disabled]="getClientLoginForm.pristine || getClientLoginForm.invalid">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

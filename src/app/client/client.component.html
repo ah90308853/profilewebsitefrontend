@@ -1,0 +1,44 @@
+<div class="col-12 p-0">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6 d-flex flex-column align-items-center">
+                <div class="rounded-3 p-5" style="background-color: rgba(24, 165, 165, 0.178);">
+                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Profile</h1>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Id</th>
+                                <td>{{client.clientId}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{client.email}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Name</th>
+                                <td>{{client.name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Address</th>
+                                <td>{{client.address}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Money</th>
+                                <td>${{client.money}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+
+
+
+                <!--<p style="font-size: 1.2vmax;">{{client.clientId}}</p>
+                <p style="font-size: 1.2vmax;">{{client.email}}</p>
+                <p style="font-size: 1.2vmax;">{{client.name}}</p>
+                <p style="font-size: 1.2vmax;">{{client.address}}</p>
+                <p style="font-size: 1.2vmax;">{{client.money}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>

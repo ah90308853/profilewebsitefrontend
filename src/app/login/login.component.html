@@ -1,0 +1,11 @@
+<form role="form" (submit)="login()">
+	<div class="form-group">
+		<label for="credentialsUsername">Username:</label> <input type="text"
+			class="form-control" id="credentialsUsername" name="credentialsUsername" [(ngModel)]= "credentials.credentialsUsername"/>
+	</div>
+	<div class="form-group">
+		<label for="credentialsPassword">Password:</label> <input type="password"
+			class="form-control" id="credentialsPassword" name="credentialsPassword" [(ngModel)]="credentials.credentialsPassword"/>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

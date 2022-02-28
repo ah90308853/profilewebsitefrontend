@@ -1,0 +1,22 @@
+<div id="topNavBar" class="navbar navbar-light fixed-top bg-light" [style.opacity]="getAnimationDone() ? 1 : 0">
+        <div class="container-fluid" >
+            <ul class="navbar-nav d-flex flex-row" style="height: 40px;"> 
+                <li class="navbar-item h-100 d-flex align-items-center me-3">
+                    <a id="responsiveBodyText" href="#welcome" [ngClass]="{'nav-link activeLink': isLinkActive(0), 'nav-link inactiveLink': !isLinkActive(0)}" style="height: min-content;">Home</a> <!-- <a routerLink="./" fragment="welcome" [ngClass]="{'nav-link activeLink': isLinkActive(0), 'nav-link': !isLinkActive(0)}">Home</a> -->
+                </li>
+                <li class="navbar-item h-100 d-flex align-items-center me-3">
+                    <a id="responsiveBodyText" href="#bio" [ngClass]="{'nav-link activeLink': isLinkActive(1), 'nav-link inactiveLink': !isLinkActive(1)}" style="height: min-content;">Bio</a>
+                </li>
+                <li class="navbar-item h-100 d-flex align-items-center me-3">
+                    <a id="responsiveBodyText" href="#panel" [ngClass]="{'nav-link activeLink': isLinkActive(2), 'nav-link inactiveLink': !isLinkActive(2)}" style="height: min-content; white-space: nowrap">Project Menu</a> <!--<a href="#panel" [ngClass]="{'nav-link activeLink': isLinkActive(2), 'nav-link': !isLinkActive(2)}">Project Menu</a>-->
+                </li>
+                <li class="navbar-item h-100 d-flex align-items-center me-3">
+                    <a id="responsiveBodyText" href="#resume" [ngClass]="{'nav-link activeLink': isLinkActive(3), 'nav-link inactiveLink': !isLinkActive(3)}" style="height: min-content;">Resume</a>
+                </li>
+            </ul>
+
+        </div>
+</div>
+
+
+

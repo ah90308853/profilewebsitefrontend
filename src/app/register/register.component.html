@@ -1,0 +1,160 @@
+<div class="container-fluid mb-5">
+	<div class="row justify-content-center" >
+		<div class="col-11 p-lg-5 px-2 py-5 rounded-3 shadow d-flex align-items-center justify-content-center" style="background-color: rgba(252, 243, 230,1); z-index: 1;">
+			<div class="container-fluid p-lg-5 px-3 py-5" > <!-- rounded-3 shadow style="background-color: rgba(237, 237, 243, 1);" -->
+				<div class="row gy-3 mb-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+					<div class="col-12 d-flex justify-content-center">
+						<h1 class="mb-4 py-2 px-5 rounded-3" id="responsive-font-4" style="background-color:rgba(131, 215, 218, .5); box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); font-size: 3vmax; font-family: 'Source Code Pro', monospace; font-weight: 300;">Security</h1>
+					</div>
+					<div class="col-12">
+						<p id="responsiveBodyText" class="text-center px-3">
+							Built on top of Spring Security, this login system uses multi-stage validation and database-backed authentication to ensure that
+							users can register and login securely. Head below to try out the system and learn how it works! 
+						</p>
+					</div>
+				</div>
+				<div class="row gy-3 mb-5 p-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+					<div class="col-lg-6 col-12 px-0 py-3 rounded-3 m-0" style="background: rgb(238,174,202);
+					background: linear-gradient(270deg, rgba(238,174,202,.5) 0%, rgba(148,194,233,.5) 100%);">
+						<form [formGroup]="getUserForm()" (ngSubmit)="register()">
+							<div class="container-fluid">
+								<div class="row g-3">
+									<div class="col-12">
+										<h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Register</h1>
+										<p id="responsiveBodyText" class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Username</p>
+										<input formControlName="username" type="text" 
+											[ngClass]= "(getUserFormField('username').invalid || getUserFormField('username').pristine) ? 'form-control w-75 mb-1 is-invalid' : 'form-control w-75 mb-1 is-valid'"
+										/>
+										<div class="invalid-feedback" *ngIf="getUserFormField('username').hasError('required')">
+											Username is required
+										</div>
+										<div class="invalid-feedback" *ngIf="getUserFormField('username').hasError('pattern')">
+											Username must be between 3 and 25 characters and not contain any spaces
+										</div>
+										<div class="invalid-feedback" *ngIf="getUserFormField('username').hasError('invalidAsync')">
+											Username already exists in the database
+										</div>
+									</div>
+									<div class="col-12">
+										<p id="responsiveBodyText" class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Password</p>
+										<input formControlName="password" type="password" 
+											[ngClass]= "(getUserFormField('password').invalid || getUserFormField('password').pristine) ? 'form-control w-75 mb-1 is-invalid' : 'form-control w-75 mb-1 is-valid'"
+										/>
+										<div class="invalid-feedback" *ngIf="getUserFormField('password').hasError('required')">
+											Password is required
+										</div>
+										<div class="invalid-feedback" *ngIf="getUserFormField('password').hasError('pattern')">
+											Password must be between 8 and 20 characters, contain a lowercase and uppercase letter,
+											contain any of '!@#$%^&-+=()' special characters, and not contain any spaces 
+										</div>
+									</div>
+									<div class="col-12">
+										<p id="responsiveBodyText" class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Email</p>
+										<input id="email" formControlName="email" type="text"
+											[ngClass]= "(getUserFormField('email').invalid || getUserFormField('email').pristine)? 'form-control w-75 mb-1 is-invalid' : 'form-control w-75 mb-1 is-valid'"
+										/>
+										<div class="invalid-feedback" *ngIf="getUserFormField('email').hasError('required')">
+											Email is required
+										</div>
+										<div class="invalid-feedback" *ngIf="getUserFormField('email').hasError('pattern')">
+											Email must be valid
+										</div>
+										<div class="invalid-feedback" *ngIf="getUserFormField('email').hasError('invalidAsync')">
+											Email already exists in the database
+										</div>
+									</div>
+									<div class="col-12">
+										<button 
+											type="submit" 
+											class="btn btn-primary mt-2"
+											[disabled]="getUserForm().pristine || getUserFormField('username').invalid || getUserFormField('email').invalid || getUserFormField('password').invalid"
+										>Submit</button>
+										<div *ngIf="getRegistrationOutcome()" [ngClass]="getRegistrationOutcome() ? 'alert alert-success mt-2' : 'alert alert-danger mt-2'">
+											{{getRegistrationOutcomeMessage()}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-6 col-12 py-3 m-0">
+						<h1 class="w-100" style="font-size: 2vmax; font-family: 'Source Code Pro', monospace; font-weight: 300; border-bottom: 2px solid rgb(43, 43, 48);">How Registration Works</h1>
+						<p id="responsiveBodyText" class="px-2">
+							Each input is first validated in the frontend against a specified format
+							(e.g. containing "@" and "." for an email). As soon as the email and username
+							input passes, a query is sent to the backend server to check whether it already
+							exists in the database. If all frontend validation passes, the server verifies
+							each validation and then creates the account.
+						</p>
+					</div>
+				</div>
+				<div class="row gy-3 mb-5 p-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+					<div class="col-lg-6 col-12 px-0 py-3 rounded-3" style="background: rgb(238,174,202);
+					background: linear-gradient(270deg, rgba(238,174,202,.5) 0%, rgba(148,194,233,.5) 100%);">
+						<form [formGroup]="getLoginForm()" (ngSubmit)="login()">
+							<div class="container-fluid">
+								<div class="row g-3">
+									<div class="col-12">
+										<h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Login</h1>
+										<p id="responsiveBodyText" class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Username</p>
+										<input formControlName="credentialsUsername" type="text" 
+											[ngClass]= "(getLoginFormField('credentialsUsername').invalid || getLoginFormField('credentialsUsername').pristine) ? 'form-control w-75 is-invalid' : 'form-control w-75 is-valid'"
+										/>
+										<div class="invalid-feedback" *ngIf="getLoginFormField('credentialsUsername').hasError('required')">
+											Username is required
+										</div>
+									</div>
+									<div class="col-12">
+										<p id="responsiveBodyText" class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Password</p>
+										<input formControlName="credentialsPassword" type="password" 
+											[ngClass]= "(getLoginFormField('credentialsPassword').invalid || getLoginFormField('credentialsPassword').pristine) ? 'form-control w-75 is-invalid' : 'form-control w-75 is-valid'"
+										/>
+										<div class="invalid-feedback" *ngIf="getLoginFormField('credentialsPassword').hasError('required')">
+											Password is required
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="d-flex mt-2">
+											<button type="submit" [disabled]="getLoginFormField('credentialsUsername').invalid || getLoginFormField('credentialsPassword').invalid || authenticated()" class="btn btn-primary mr-4">Login</button>
+											<button type="button" (click)="logout()" [disabled]="!authenticated()" class="btn btn-primary">Logout</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-6 col-12 py-3">
+						<h1 class="w-100" style="font-size: 2vmax; font-family: 'Source Code Pro', monospace; font-weight: 300; border-bottom: 2px solid rgb(95, 93, 91);">Logging In Process</h1>
+						<p id="responsiveBodyText" class="px-2">
+							Logging in a user requires checking whether the entered data
+							matches the credentials the database has stored. This check
+							is performed by constructing and encrypting an authentication header
+							from the entered data and querying the backend using a frontend service.
+							If authentication passes, the username is extracted from the header and
+							passed elsewhere in the frontend by the frontend service.
+						</p>
+					</div>
+				</div>
+				<div class="row gy-3 mb-5 p-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+					<div class="col-lg-6 col-12">
+						<h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto text-nowrap" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Login Status</h1>
+						<p [hidden]=!authenticated() class="alert alert-success">Hello {{getLoggedInUsername()}}, you have successfully logged into an account on the server!</p>
+						<p [hidden]=authenticated() class="alert alert-danger">You are not logged into an account on the server</p>
+					</div>
+					<div class="col-lg-6 col-12">
+						<h1 class="w-100" style="font-size: 2vmax; font-family: 'Source Code Pro', monospace; font-weight: 300; border-bottom: 2px solid rgb(43, 43, 48);">Displaying Login Status</h1>
+						<p id="responsiveBodyText" class="px-2">
+							Correctly displaying whether authentication has succeeded and, if it has,
+							displaying the logged in account information requires careful coordination
+							between the front and back end roles. After the frontend is told backend
+							authentication has succeeded, the account id is extracted from the data
+							sent to the backend and passed to a fontend service. The service then queries
+							the backend for all information about the account. finally, the service is used
+							to store, update and propagate information about the user. 
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

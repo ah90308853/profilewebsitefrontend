@@ -1,0 +1,32 @@
+<div class="col-12 p-0" *ngIf="getCategorySwitch()" >
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-5 p-0 m-2" *ngFor="let product of getProducts; let i = index">
+                <div class="rounded-3 shadow" style="overflow: hidden;">
+                    <button (click)="switchCategory(product.productId)" style="all: unset; cursor: pointer;">
+                        <img [src]="fetchProductImage(product.productName)" class="img-fluid">
+                        <h1 class="text-center rounded-pill shadow px-4 py-2 position-absolute bottom-0 start-50 translate-middle-x" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgba(233, 223, 197, 0.658); font-family: 'Source Code Pro', monospace; font-weight: 300; width: min-content;">{{product.productName}}</h1>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 p-0" *ngIf="!getCategorySwitch()">
+    <div class="container-fluid">
+        <div class="row rounded-3 shadow mb-2" style="overflow: hidden;" *ngFor="let productAndSupplier of getProductAndSuppliers; let i = index">
+            <div class="col-lg-6 col-12 p-0 m-lg-0 mb-2">
+                <button (click)="addProductAndSupplierToCart(i)" style="all: unset; cursor: pointer; height: 100%; width: 100%; ">
+                    <img [src]="fetchOfferingImage(productAndSupplier.offeringName)" class="img-fluid">
+                    <h1 class="text-center rounded-pill shadow px-4 py-2 position-absolute bottom-0 start-50 translate-middle-x" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgba(233, 223, 197, 0.658); font-family: 'Source Code Pro', monospace; font-weight: 300; width: min-content;">{{productAndSupplier.offeringName}}</h1>
+                </button>
+            </div>
+            <div class="col-lg-6 col-12 p-3 d-flex flex-column justify-content-center">
+                <p style="font-size: 1.5vmax;">Price: ${{productAndSupplier.price}}</p>
+                <p style="font-size: 1.5vmax;">Details: {{productAndSupplier.offeringDescription}}</p>
+                <p style="font-size: 1.5vmax;">Quantity available: {{productAndSupplier.quantity}}</p>
+                <button class="btn btn-primary w-50" (click)="addProductAndSupplierToCart(i)">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

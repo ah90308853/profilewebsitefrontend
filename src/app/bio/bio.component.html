@@ -1,0 +1,41 @@
+<div class="container-fluid mb-5">
+	<div class="row justify-content-center">
+		<div class="col-11 rounded-3 shadow d-flex flex-column align-items-center justify-content-center p-lg-5 p-2" style="background-color: rgb(252, 243, 230); z-index: 1;"> <!-- h-100 -->
+            <div class="container">
+                <div class="row py-5 justify-content-center">
+                    <div class="col-lg-12 col-sm-8 shadow-sm rounded-3 align-items-center justify-content-center py-5" style="background-color: rgb(237, 237, 243);;"> <!-- h-100 -->
+                        <div class="container-fluid">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-lg-3 col-sm-8 col-md-6 align-items-center" style="height: 300px;">
+                                    <img src="../../assets/andrew.jpeg" class="w-100 h-100 rounded-circle">
+                                </div>
+                                <div class="col-lg-9 col-sm-12 d-flex flex-column align-items-start justify-content-center">
+                                    <h1 id="responsiveLargeHeader" class="mb-3 w-100" style="border-bottom: 2px solid rgb(43, 43, 48); font-family: 'Source Code Pro', monospace; font-weight: 300;">About Me</h1>
+                                    <p id="responsiveBodyText"> <!--<p style="font-size: 2vmax;">-->
+                                        I'm a Minneapolis-based software developer and recent CS graducate with a focus on full stack development. Other interests include security and encryption.
+                                        I designed and hosted this site from the ground up using Spring Boot and Angular to both showcase and develop my skills in web development.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-5 pt-2 justify-content-center">
+                    <div class="col-lg-12 d-flex flex-column justify-content-start shadow-sm rounded-3 py-5" style="background-color: rgb(237, 237, 243);">
+                        <h1 id="responsiveLargeHeader" class="mb-3" style="border-bottom: 2px solid rgb(43, 43, 48); font-family: 'Source Code Pro', monospace; font-weight: 300;">Hire Me</h1>
+                        <form [formGroup]="getMessageForm" (ngSubmit)="sendMessage()">
+                            <p class="mb-1">Email</p>
+                            <input formControlName="email" placeholder="Email" class="form-control w-50 mb-2"/>
+                            <p class="mb-1">Message</p>
+                            <textarea formControlName="message" placeholder="Let's set up an interview" class="form-control"></textarea>
+                            <button class="btn btn-primary w-25 mt-4" type="submit" [disabled]="!getMessageForm.valid">Send</button>
+                            <div [style.opacity]="getSendMessageResult ? 1 : 0" [ngClass]="getSendMessageResult ? 'alert alert-success mt-2' : 'alert alert-danger mt-2'"> <!--*ngIf="getSendMessageResult"-->
+                                {{getSendMessageResultMessage()}}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

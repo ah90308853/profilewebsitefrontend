@@ -1,0 +1,240 @@
+<div class="container-fluid mb-5">
+	<div class="row justify-content-center" >
+		<div class="col-11 p-lg-5 px-2 py-5 rounded-3 shadow d-flex align-items-center justify-content-center" style="background-color: rgba(252, 243, 230,1); z-index: 1;">
+			<div class="container-fluid p-lg-5 px-3 py-5">
+                <div class="row g-3 p-lg-5 p-2 mb-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <h1 class="mb-4 py-2 px-5 rounded-3" id="responsive-font-4" style="width: min-content; background-color:rgba(131, 215, 218, .5); box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); font-size: 3vmax; font-family: 'Source Code Pro', monospace; font-weight: 300;">Storefront</h1>
+                    </div>
+                    <div class="col-12 mb-3">
+						<p id="responsiveBodyText" class="text-center px-3">
+                            This project is meant to closely mimick the needs of a storefront. A persistent database is used to
+                            create and store clients, carts, products, and suppliers as well as the relationships between the
+                            entities. For example, the union between a product and a supplier is a product currently available
+                            for purchase, and the union between that union entity and a cart is a product ready for purchase.
+                            Interconnected frontend services are used to track, update, and display database information to
+                            clients.
+                        </p>
+                    </div>
+                </div>
+                <div class="row g-3 p-lg-5 p-2 mb-5 rounded-3 shadow" style="background-color: rgba(237, 237, 243, 1);">
+                    <div class="col-12 p-0">
+                        <div class="navbar navbar-light bg-light rounded-3 w-100">
+                            <ul class="navbar-nav d-flex flex-row w-100 align-items-center">
+                                <li class="navbar-item me-auto">
+                                    <button (click)="switchCategory()" class="btn btn-dark d-flex align-items-center" [disabled]="getCategorySwitch()" style="font-size: 1.5vmax;">
+                                        <i class="bi bi-arrow-left me-2"></i>Categories
+                                    </button>
+                                </li>
+                                <li class="navbar-item me-3" style="font-size: 2vmax;">
+                                    <a routerLink="/storefront-categories-offerings" [queryParams]="{skipLocationChange: true}" (click)="reset()" style="color: inherit;">Shop</a>
+                                </li>
+                                <li class="navbar-item me-3" style="font-size: 2vmax;">
+                                    <a routerLink="/clientlogin" [queryParams]="{skipLocationChange: true}" (click)="reset()" style="color: inherit;">Login</a>
+                                </li>
+                                <li class="navbar-item me-3" style="font-size: 2vmax;">
+                                    <a routerLink="/client" [queryParams]="{skipLocationChange: true}" (click)="reset()" style="color: inherit;">Profile</a>
+                                </li>
+                                <li class="navbar-item" style="font-size: 2vmax;">
+                                    <a routerLink="/cart" [queryParams]="{skipLocationChange: true}" (click)="reset()" style="color: inherit;">Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <router-outlet></router-outlet>
+                </div>
+                <div class="row gy-3 mb-5 rounded-3 shadow p-3" style="background-color: rgba(237, 237, 243, 1);">
+                    <div class="col-12">
+                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Entity Generation</h1>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <form [formGroup]="getClientForm" (ngSubmit)="newClient()">
+                            <div class="container-fluid">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Client</h1>
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Name</p>
+                                        <input class="form-control" formControlName="name" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Address</p>
+                                        <input class="form-control" formControlName="address" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Funds In Account</p>
+                                        <input class="form-control" formControlName="money" type="number">
+                                    </div>
+                                    <div class="col-12">
+                                        <button 
+                                            type="submit" 
+                                            class="btn btn-primary mt-2"
+                                            [disabled]="!getClientForm.valid"
+                                        >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <form [formGroup]="getSupplierForm" (ngSubmit)="newSupplier()">
+                            <div class="container-fluid">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Supplier</h1>
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Name</p>
+                                        <input class="form-control" formControlName="supplierName" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Description</p>
+                                        <input class="form-control" formControlName="supplierDescription" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <button 
+                                            type="submit" 
+                                            class="btn btn-primary mt-2"
+                                            [disabled]="!getSupplierForm.valid"
+                                        >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <form [formGroup]="getProductForm" (ngSubmit)="newProduct()">
+                            <div class="container-fluid">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Product Category</h1>
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Name</p>
+                                        <input class="form-control" formControlName="productName" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Description</p>
+                                        <input class="form-control" formControlName="productDescription" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <button 
+                                            type="submit" 
+                                            class="btn btn-primary mt-2"
+                                            [disabled]="!getProductForm.valid"
+                                        >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <form [formGroup]="getProductAndSupplierForm" (ngSubmit)="newProductAndSupplier()">
+                            <div class="container-fluid">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Product</h1>
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Product Id</p>
+                                        <input class="form-control" formControlName="productId" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Supplier Id</p>
+                                        <input class="form-control" formControlName="supplierId" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Price</p>
+                                        <input class="form-control" class="form-control" formControlName="price" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Quantity</p>
+                                        <input class="form-control" formControlName="quantity" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Item</p>
+                                        <input class="form-control" formControlName="offeringName" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Item Description</p>
+                                        <input class="form-control" formControlName="offeringDescription" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <button 
+                                            type="submit" 
+                                            class="btn btn-primary mt-2"
+                                            [disabled]="!getProductAndSupplierForm.valid"
+                                        >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-12 p-0">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 p-2">
+                                    <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Entities</h1>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Product Id</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Product Description</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let product of getProducts">
+                                                <td>{{product.productId}}</td>
+                                                <td>{{product.productName}}</td>
+                                                <td>{{product.productDescription}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-12 p-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <!--<th scope="col"></th>-->
+                                                <th scope="col">Supplier Id</th>
+                                                <th scope="col">Supplier Name</th>
+                                                <th scope="col">Supplier Description</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let supplier of getSuppliers">
+                                                <td>{{supplier.supplierId}}</td>
+                                                <td>{{supplier.supplierName}}</td>
+                                                <td>{{supplier.supplierDescription}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <form [formGroup]="getProductForm()" (ngSubmit)="newProduct()">
+                            <div class="container-fluid">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <h1 class="text-center rounded-pill px-4 py-2 mt-2 mb-5 mx-auto" style="font-size: 2vmax; color:rgb(43, 43, 48); background-color:rgb(233, 223, 197); font-family: 'Source Code Pro', monospace; font-weight: 300; box-shadow: 5px 5px 2px 1px rgba(43, 43, 48, .5); width: min-content;">Product</h1>
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Name</p>
+                                        <input formControlName="productName" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-1" style="font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 1.2vmax;">Description</p>
+                                        <input formControlName="productDescription" type="text">
+                                    </div>
+                                    <div class="col-12">
+                                        <button 
+                                            type="submit" 
+                                            class="btn btn-primary mt-2"
+                                        >Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    --> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

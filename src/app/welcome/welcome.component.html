@@ -1,0 +1,21 @@
+<div class="container-fluid position-relative vh-100"> <!--  <div class="container-fluid position-relative" style="height: 100vh;">  -->
+  <div class="container-fluid position-fixed top-0 start-0 h-100" style="background-image: url('../../assets/sky.jpg'); background-size: cover; background-position: center; z-index: -4;">
+  </div>
+  <div class="container-fluid h-100 pb-5">
+    <div class="row justify-content-center align-items-center h-100 pb-5">
+      <div class="col-10 h-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="h-75 w-100 d-flex flex-column justify-content-end align-items-center">
+          <h1 class="text-center" style="white-space: pre; color:rgb(252, 243, 230); font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 2vmax;">{{getBuildingPhrase(0)}}{{getCursor(0)}}</h1>
+          <h1 class="text-center mt-5" style="white-space: pre; color:rgb(252, 243, 230); font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 2.5vmax;">{{getBuildingPhrase(1)}}{{getCursor(1)}}</h1>
+          <h1 class="text-center mt-5 w-100" style="white-space: pre; color:rgb(252, 243, 230); font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 4vmax;">{{getBuildingPhrase(2)}}{{getCursor(2)}}</h1>
+          <h1 class="text-center mt-2 w-100" style="white-space: pre; color:rgb(252, 243, 230); font-family: 'Source Code Pro', monospace; font-weight: 300; font-size: 4vmax;">{{getBuildingPhrase(3)}}{{getCursor(3)}}</h1>
+        </div>
+        <div class="h-25">
+          <i id="welcomeIcon" class="bi bi-arrow-down" style="font-size: 4vmax; color:rgb(252, 243, 230);" [style.opacity]="getAnimationSequenceComplete() ? 1 : 0"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

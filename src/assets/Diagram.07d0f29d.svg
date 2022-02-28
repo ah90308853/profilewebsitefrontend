@@ -1,0 +1,21 @@
+<svg width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect stroke="#000" id="svg_1" height="52" width="171" y="17.5" x="107.94531" fill="#fff"/>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="20" stroke-width="0" id="svg_3" y="50.5" x="126.89063" stroke="#000" fill="#000000">Original Letter</text>
+  <rect id="svg_4" height="74" width="75" y="112.5" x="155.94531" stroke="#000" fill="#000000"/>
+  <rect id="svg_5" height="52" width="171" y="230.5" x="107.94531" stroke="#000" fill="#fff"/>
+  <path transform="rotate(180 193.445 91.6332)" id="svg_8" d="m184.44532,91.5912l8.99999,-17.458l8.99999,17.458l-4.5,0l0,17.542l-8.99999,0l0,-17.542l-4.5,0z" stroke="#000" fill="#000000"/>
+  <path transform="rotate(180 193.445 207.633)" id="svg_10" d="m184.44532,207.5912l8.99999,-17.45799l8.99999,17.45799l-4.49999,0l0,17.542l-9,0l0,-17.542l-4.49999,0z" stroke="#000" fill="#000000"/>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="20" stroke-width="0" id="svg_11" y="263.5" x="120.83594" stroke="#000" fill="#000000">Encrypted Letter</text>
+  <line id="svg_12" y2="41.5" x2="393.44531" y1="41.5" x1="293.44531" stroke="#000" fill="none"/>
+  <line id="svg_16" y2="255.5" x2="393.44531" y1="41.5" x1="393.44531" stroke="#000" fill="none"/>
+  <line id="svg_17" y2="255.5" x2="393.44531" y1="255.5" x1="293.44531" stroke="#000" fill="none"/>
+  <path id="svg_19" d="m317.4453,245.32178l-11.19937,10.17884l11.19937,10.17883l-6.40032,5.82057l-17.59968,-15.9994l17.59968,-16.00063" stroke="#000" fill="#000000"/>
+  <path id="svg_20" d="m317.4453,31.32178l-11.19937,10.17885l11.19937,10.17883l-6.40033,5.82057l-17.59967,-15.9994l17.59967,-16.00063" stroke="#000" fill="#000000"/>
+  <text font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="24" id="svg_21" y="51.5" x="75.44531" stroke="#000" fill="#000000">1.</text>
+  <text xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="24" id="svg_22" y="159.5" x="124.44531" stroke="#000" fill="#000000">2.</text>
+  <text xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="24" id="svg_23" y="268.5" x="75.44531" stroke="#000" fill="#000000">3.</text>
+  <text xml:space="preserve" text-anchor="start" font-family="'Open Sans'" font-size="24" id="svg_24" y="159.5" x="404.44531" stroke="#000" fill="#000000">4.</text>
+ </g>
+</svg>

@@ -1,0 +1,44 @@
+<svg width="700" height="300" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m220.89651,75.30478l9.33174,-8.58919l-9.33174,-8.58925l5.33356,-4.90866l14.66644,13.49791l-14.66644,13.5021" id="svg_7"/>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m435.89651,72.30478l9.33174,-8.5892l-9.33174,-8.58925l5.33356,-4.90865l14.66644,13.4979l-14.66644,13.5021" id="svg_8"/>
+  <g id="svg_20">
+   <rect fill="none" x="477" y="44" width="201" height="42" id="svg_4" stroke="#000000"/>
+   <text fill="#000000" stroke="#000000" x="488.6" y="72" id="svg_5" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Encrypted Message</text>
+  </g>
+  <rect fill="none" x="258" y="33.4" width="160" height="65" id="svg_9" stroke="#000000"/>
+  <text fill="#000000" stroke="#000000" stroke-width="0" x="283.6" y="62.39999" id="svg_10" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Bob's Public</text>
+  <text fill="#000000" x="317.6" y="85.39999" id="svg_11" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" stroke="#000000">Key</text>
+  <g id="svg_22">
+   <rect fill="none" x="43" y="17.4" width="160" height="100.99999" id="svg_1" stroke-dasharray="5,5" stroke="#000000"/>
+   <text fill="#000000" stroke="#000000" x="57" y="46.39999" id="svg_2" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Message Sent</text>
+   <text fill="#000000" stroke="#000000" stroke-dasharray="5,5" x="74.6" y="75.39999" id="svg_13" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">by Alice to</text>
+   <text fill="#000000" stroke="#000000" stroke-width="0" stroke-dasharray="5,5" x="103.6" y="102.39999" id="svg_14" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Bob</text>
+  </g>
+  <g id="svg_23">
+   <rect fill="none" x="496" y="184.4" width="160" height="82" id="svg_12" stroke-dasharray="5,5" stroke="#000000"/>
+   <text fill="#000000" x="507.6" y="219.39999" id="svg_17" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Message Read</text>
+   <text fill="#000000" stroke-dasharray="5,5" x="538.6" y="247.39999" id="svg_19" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">by Bob</text>
+  </g>
+  <g id="svg_26">
+   <rect fill="none" x="40" y="205" width="201" height="42" id="svg_24" stroke="#000000"/>
+   <text fill="#000000" stroke="#000000" x="51.6" y="233" id="svg_25" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Encrypted Message</text>
+  </g>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m254.89651,236.30478l9.33174,-8.5892l-9.33174,-8.58925l5.33356,-4.90865l14.66644,13.4979l-14.66644,13.5021" id="svg_27"/>
+  <rect fill="none" x="287" y="196.4" width="160" height="65" id="svg_28" stroke="#000000"/>
+  <text fill="#000000" stroke="#000000" stroke-width="0" x="308.6" y="225.39999" id="svg_29" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">Bob's Private</text>
+  <text fill="#000000" x="349.6" y="248.39999" id="svg_30" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve" stroke="#000000">Key</text>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m460.89651,236.30478l9.33174,-8.5892l-9.33174,-8.58925l5.33356,-4.90865l14.66644,13.4979l-14.66644,13.5021" id="svg_32"/>
+  <line fill="none" stroke="#000000" x1="576.6" y1="100" x2="576.6" y2="130" id="svg_33"/>
+  <line fill="none" x1="577" y1="128.39999" x2="139" y2="128.39999" id="svg_34" stroke="#000000"/>
+  <line fill="none" stroke="#000000" x1="139.6" y1="128" x2="138.6" y2="189.39999" id="svg_35"/>
+  <g id="svg_39">
+   <rect fill="none" x="242" y="134" width="201" height="42" id="svg_36" stroke="#000000"/>
+   <text fill="#000000" stroke="#000000" x="260.6" y="162" id="svg_37" stroke-width="0" font-size="20" font-family="'Open Sans'" text-anchor="start" xml:space="preserve">From Alice to Bob</text>
+  </g>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m128.89651,197.30478l9.33174,-8.5892l-9.33174,-8.58925l5.33356,-4.90865l14.66644,13.4979l-14.66644,13.5021" id="svg_40" transform="rotate(90 138.897 188.718)"/>
+  <path fill="#000000" stroke="#000000" stroke-width="0" d="m566.89651,108.30478l9.33174,-8.5892l-9.33174,-8.58925l5.33356,-4.90865l14.66644,13.4979l-14.66644,13.5021" id="svg_42" transform="rotate(90 576.897 99.718)"/>
+ </g>
+
+</svg>
